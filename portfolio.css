@@ -201,3 +201,32 @@ p {
   margin-left: 20px;
   font-size: 1.1rem;
 }
+
+.slideshow-container {
+  position: absolute;
+  top: 50%;
+  right: 30px;
+  transform: translateY(-40%);
+  width: 500px;
+  height: 200px;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+ .slideshow {
+  display: flex;
+  animation: scroll 40s linear infinite;
+}
+
+.slideshow img {
+  width: 50px;
+  height: 50px;
+  margin: 10px;
+}
+
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-500%); }
+} */
