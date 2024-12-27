@@ -1,4 +1,3 @@
-/* Reset default margin and padding */
 * {
   margin: 0;
   padding: 0;
@@ -290,3 +289,23 @@ p {
     font-size: calc(var(--marquee-height) * 1 / 2); /* Make icons smaller on mobile */
   }
 }
+
+.container-projects {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.projects-text {
+padding-top: 20px;
+}
+
+.explore {
+  padding-top: 20px;
+  }
+
+#projects-heading {
+    text-align: center;
+    font-weight: bold;
+    padding-top: 60px;
+  }
