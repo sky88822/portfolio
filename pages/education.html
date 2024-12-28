@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Skills - Sky Harman</title>
+    <link rel="stylesheet" href="/portfolio.css">
+    <!-- Import Fira Code font from Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+    <!-- Font Awesome for icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Centering the content div */
+        .centered-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh; /* Full viewport height */
+            color: #fff; /* Text color */
+            text-align: center; /* Center text */
+            background: rgba(0, 0, 0, 0.5); /* Optional: semi-transparent background for readability */
+            padding: 20px;
+            border-radius: 10px; /* Rounded corners */
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5); /* Shadow for depth */
+            margin: 0 auto;
+        }
+
+        .centered-content h2 {
+            margin-bottom: 10px;
+            font-weight: 600; /* Bold for headings */
+        }
+
+        .centered-content p {
+            margin: 5px 0;
+        }
+
+        .centered-content a {
+            color: #00bfff; /* Link color */
+            text-decoration: none; /* Remove underline */
+        }
+
+        .centered-content a:hover {
+            text-decoration: underline; /* Underline on hover */
+        }
+    </style>
+</head>
+
+<body class="skills-page">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="portfolio.html" class="home-link"><i class="fas fa-code"></i> Sky Harman</a>
+        </div>
+        <div class="navbar-center">
+            <a href="skills.html"><i class="fas fa-cogs"></i> Skills</a>
+            <a href="projects.html"><i class="fas fa-cube"></i> Projects</a>
+            <a href="experience.html"><i class="fas fa-laptop-code"></i> Experience</a>
+            <a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="resume.html"><i class="fas fa-file-alt"></i> Resumé</a>
+        </div>
+    </nav>
+
+    <!-- Skills Page Background Video -->
+    <div class="skills-bg-video-container">
+        <video autoplay muted loop id="skills-bg-video">
+            <source src="/source/space.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    <!-- Centered Content Section -->
+    <div class="centered-content">
+        <h2>Education & Certifications</h2>
+        <p><strong>Studied at:</strong></p>
+        <p>Le Wagon Software Development Bootcamp - <a href="https://www.lewagon.com" target="_blank">Website</a></p>
+        <p>FreeCodeCamp - <a href="https://www.freecodecamp.org" target="_blank">Website</a></p>
+        <p><strong>Achieved:</strong></p>
+        <p>Certification from Le Wagon</p>
+        <p>Certification in Web Development from FreeCodeCamp</p>
+    </div>
+
+</body>
+
+</html>
