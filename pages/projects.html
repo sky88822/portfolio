@@ -46,20 +46,23 @@
             font-size: 1.2rem;
         }
 
-        .thumbnail-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Allow thumbnails to wrap onto a new line */
+    gap: 10px; /* Add space between thumbnails, including those on the second line */
+}
 
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            margin: 0 5px;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
 
         .thumbnail:hover {
             opacity: 1;
@@ -157,10 +160,10 @@
 
     <div class="container-projects">
         <div class="projects">
-            <h2 id="projects-heading"><strong>My Projects</strong></h2>
+            <h2 id="projects-heading"><strong>Nata</strong></h2>
             <p></p>
             <div class="projects-text">
-                <h2>Project 1: Nata (mobile app for language learners)</h2>
+                <h2>A mobile app for language learners</h2>
                 <p>Nata is a mobile app that my team and I developed from scratch. The idea behind the app was to create a space for individuals learning a language to speak with fellow individuals to practice and learn.</p>
                 <div class="explore">
                     <p>Explore the images below to witness the creation of Nata from beginning to end.</p>
@@ -182,7 +185,7 @@
                 <img class="main-image" src="///" alt="Image 3" onclick="enlargeImage(this)" />
 
                 <div class="thumbnail-container">
-                    <img class="thumbnail" src="image1.jpg" alt="Image 1" onclick="currentSlide(1)" />
+                    <img class="thumbnail" src="/source/Nata/nata figma.png" alt="Image 1" onclick="currentSlide(1)" />
                     <img class="thumbnail" src="image2.jpg" alt="Image 2" onclick="currentSlide(2)" />
                     <img class="thumbnail" src="image3.jpg" alt="Image 3" onclick="currentSlide(3)" />
                 </div>

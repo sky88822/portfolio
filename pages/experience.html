@@ -44,20 +44,23 @@
             font-size: 1.2rem;
         }
 
-        .thumbnail-container {
-            display: flex;
-            justify-content: center;
-            margin-top: 10px;
-        }
+.thumbnail-container {
+    display: flex;
+    justify-content: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    flex-wrap: wrap; /* Allow thumbnails to wrap onto a new line */
+    gap: 10px; /* Add space between thumbnails, including those on the second line */
+}
 
-        .thumbnail {
-            width: 80px;
-            height: 80px;
-            margin: 0 5px;
-            cursor: pointer;
-            opacity: 0.6;
-            transition: opacity 0.3s;
-        }
+.thumbnail {
+    width: 80px;
+    height: 80px;
+    cursor: pointer;
+    opacity: 0.6;
+    transition: opacity 0.3s;
+}
+
 
         .thumbnail:hover {
             opacity: 1;
@@ -120,7 +123,7 @@
             transform: translate(-50%, -50%);
         }
 
-        /* When the 'no-arrows' class is added to the body, hide the arrows */
+        /* Hide arrows when 'no-arrows' class is added to the body */
         body.no-arrows .prev,
         body.no-arrows .next {
             display: none;
@@ -173,19 +176,19 @@
                 <div class="caption">The Art of Bathe</div>
                 <img class="main-image" src="/source/Experience/bathe 3.png" alt="Image 3" onclick="enlargeImage(this)" />
                 <div class="caption">Contact Form</div>
-                <img class="main-image" src="/source/Experience/bathe 4.png" alt="Image 3" onclick="enlargeImage(this)" />
+                <img class="main-image" src="/source/Experience/bathe 4.png" alt="Image 4" onclick="enlargeImage(this)" />
                 <div class="caption">Bathe Philosophy</div>
-                <img class="main-image" src="/source/Experience/bTHE 5.png" alt="Image 3" onclick="enlargeImage(this)" />
+                <img class="main-image" src="/source/Experience/bTHE 5.png" alt="Image 5" onclick="enlargeImage(this)" />
                 <div class="caption">Bathe extract</div>
-                <img class="main-image" src="/source/Experience/bathe 6.png" alt="Image 3" onclick="enlargeImage(this)" />
+                <img class="main-image" src="/source/Experience/bathe 6.png" alt="Image 6" onclick="enlargeImage(this)" />
 
                 <div class="thumbnail-container">
                     <img class="thumbnail" src="/source/Experience/bathe 1.png" alt="Image 1" onclick="currentSlide(1, 1)" />
                     <img class="thumbnail" src="/source/Experience/bathe 2.png" alt="Image 2" onclick="currentSlide(2, 1)" />
                     <img class="thumbnail" src="/source/Experience/bathe 3.png" alt="Image 3" onclick="currentSlide(3, 1)" />
-                    <img class="thumbnail" src="/source/Experience/bathe 4.png" alt="Image 3" onclick="currentSlide(4, 1)" />
-                    <img class="thumbnail" src="/source/Experience/bTHE 5.png" alt="Image 3" onclick="currentSlide(5, 1)" />
-                    <img class="thumbnail" src="/source/Experience/bathe 6.png" alt="Image 3" onclick="currentSlide(6, 1)" />
+                    <img class="thumbnail" src="/source/Experience/bathe 4.png" alt="Image 4" onclick="currentSlide(4, 1)" />
+                    <img class="thumbnail" src="/source/Experience/bTHE 5.png" alt="Image 5" onclick="currentSlide(5, 1)" />
+                    <img class="thumbnail" src="/source/Experience/bathe 6.png" alt="Image 6" onclick="currentSlide(6, 1)" />
                 </div>
             </div>
         </div>
@@ -242,11 +245,10 @@
                 <img class="main-image active" src="/source/Experience/1111.png" alt="Image 1" onclick="enlargeImage(this)" />
                 <div class="caption">Contact Form</div>
                 <img class="main-image" src="/source/Experience/2222.png" alt="Image 2" onclick="enlargeImage(this)" />
-                <div class="caption">Help me Now!/div>
+                <div class="caption">Help me Now!</div>
                 <img class="main-image" src="/source/Experience/333.png" alt="Image 3" onclick="enlargeImage(this)" />
                 <div class="caption">Home and Chatbot</div>
                 <img class="main-image" src="/source/Experience/4444.png" alt="Image 4" onclick="enlargeImage(this)" />
-
 
                 <div class="thumbnail-container">
                     <img class="thumbnail" src="/source/Experience/1111.png" alt="Image 1" onclick="currentSlide(1, 3)" />
@@ -279,23 +281,20 @@
             const slides = document.querySelectorAll(`.slideshow-container[data-slideshow-id="${slideshowId}"] .main-image`);
             const captions = document.querySelectorAll(`.slideshow-container[data-slideshow-id="${slideshowId}"] .caption`);
 
+            // Loop through slides and captions to hide/show based on current index
             if (n > slides.length) { slideIndices[slideshowId - 1] = 1 }
             if (n < 1) { slideIndices[slideshowId - 1] = slides.length }
 
-            for (let i = 0; i < slides.length; i++) {
-                slides[i].style.display = "none";
-                captions[i].style.display = "none";
-            }
-
-            slides[slideIndices[slideshowId - 1] - 1].style.display = "block";
-            captions[slideIndices[slideshowId - 1] - 1].style.display = "block";
+            slides.forEach((slide, index) => {
+                slide.style.display = (index === slideIndices[slideshowId - 1] - 1) ? "block" : "none";
+                captions[index].style.display = (index === slideIndices[slideshowId - 1] - 1) ? "block" : "none";
+            });
         }
 
         // Enlarge image functionality
         function enlargeImage(img) {
             const overlay = document.querySelector('.overlay');
             const overlayImg = document.getElementById('overlay-img');
-            const arrows = document.querySelectorAll('.prev, .next'); // Get navigation arrows
 
             // Hide the arrows by adding a class that hides them
             document.body.classList.add('no-arrows');

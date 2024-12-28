@@ -301,6 +301,12 @@ p {
 padding-top: 20px;
 }
 
+.projects-text h2,
+.projects-text p {
+    text-align: center; /* Center-align text */
+}
+
+
 .explore {
   padding-top: 20px;
   }
