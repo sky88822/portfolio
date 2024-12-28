@@ -306,11 +306,30 @@ padding-top: 20px;
   }
 
 #projects-heading {
+text-align: center;
+font-weight: bold;
+padding-top: 60px;
+}
+
+.container-experience  {
+  width: 500px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+.experience-text h2,
+.experience-text p {
+    padding-top: 20px;
     text-align: center;
-    font-weight: bold;
-    padding-top: 60px;
+}
+
+
+.explore-experience {
+  padding-top: 20px;
+}
+
+  #experience-heading {
+  text-align: center;
+  font-weight: bold;
+  padding-top: 60px;
   }
-
-
-
-

@@ -7,9 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Skills - Sky Harman</title>
     <link rel="stylesheet" href="/portfolio.css">
-    <!-- Import Fira Code font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Slideshow Styles */
@@ -127,7 +125,6 @@
         body.no-arrows .next {
             display: none;
         }
-
     </style>
 </head>
 
@@ -155,36 +152,107 @@
         </video>
     </div>
 
-    <div class="container-projects">
-        <div class="projects">
-            <h2 id="projects-heading"><strong>Experience</strong></h2>
-            <p></p>
-            <div class="projects-text">
-                <h2>Project 1: Nata (mobile app for language learners)</h2>
-                <p>Nata is a mobile app that my team and I developed from scratch. The idea behind the app was to create a space for individuals learning a language to speak with fellow individuals to practice and learn.</p>
-                <div class="explore">
-                    <p>Explore the images below to witness the creation of Nata from beginning to end.</p>
+    <!-- Experience Section 1 -->
+    <div class="container-experience">
+        <div class="experience">
+            <h2 id="experience-heading"><strong>Bathe</strong></h2>
+            <div class="experience-text">
+                <h2>A company website to display bespoke products</h2>
+                <p>Website, graphics and content designed by Sky</p>
+                <div class="explore-experience">
+                    <p>Explore the images below to witness Bathe.</p>
                 </div>
             </div>
-
-            <!-- Slideshow Section -->
-            <div class="slideshow-container">
-                <!-- Navigation Arrows -->
-                <button class="prev" onclick="plusSlides(-1)">&#10094;</button>
-                <button class="next" onclick="plusSlides(1)">&#10095;</button>
-
-                <!-- Caption moved above the image -->
-                <div class="caption">Nata in Figma design stage</div>
-                <img class="main-image active" src="/source/Nata/nata figma.png" alt="Image 1" onclick="enlargeImage(this)" />
-                <div class="caption">Caption for Image 2</div>
-                <img class="main-image" src="///" alt="Image 2" onclick="enlargeImage(this)" />
-                <div class="caption">Caption for Image 3</div>
-                <img class="main-image" src="///" alt="Image 3" onclick="enlargeImage(this)" />
+            <div class="slideshow-container" data-slideshow-id="1">
+                <button class="prev" onclick="plusSlides(-1, 1)">&#10094;</button>
+                <button class="next" onclick="plusSlides(1, 1)">&#10095;</button>
+                <div class="caption">Bathe Blog</div>
+                <img class="main-image active" src="/source/Experience/bathe 1.png" alt="Image 1" onclick="enlargeImage(this)" />
+                <div class="caption">Bathe Homepage</div>
+                <img class="main-image" src="/source/Experience/bathe 2.png" alt="Image 2" onclick="enlargeImage(this)" />
+                <div class="caption">The Art of Bathe</div>
+                <img class="main-image" src="/source/Experience/bathe 3.png" alt="Image 3" onclick="enlargeImage(this)" />
+                <div class="caption">Contact Form</div>
+                <img class="main-image" src="/source/Experience/bathe 4.png" alt="Image 3" onclick="enlargeImage(this)" />
+                <div class="caption">Bathe Philosophy</div>
+                <img class="main-image" src="/source/Experience/bTHE 5.png" alt="Image 3" onclick="enlargeImage(this)" />
+                <div class="caption">Bathe extract</div>
+                <img class="main-image" src="/source/Experience/bathe 6.png" alt="Image 3" onclick="enlargeImage(this)" />
 
                 <div class="thumbnail-container">
-                    <img class="thumbnail" src="image1.jpg" alt="Image 1" onclick="currentSlide(1)" />
-                    <img class="thumbnail" src="image2.jpg" alt="Image 2" onclick="currentSlide(2)" />
-                    <img class="thumbnail" src="image3.jpg" alt="Image 3" onclick="currentSlide(3)" />
+                    <img class="thumbnail" src="/source/Experience/bathe 1.png" alt="Image 1" onclick="currentSlide(1, 1)" />
+                    <img class="thumbnail" src="/source/Experience/bathe 2.png" alt="Image 2" onclick="currentSlide(2, 1)" />
+                    <img class="thumbnail" src="/source/Experience/bathe 3.png" alt="Image 3" onclick="currentSlide(3, 1)" />
+                    <img class="thumbnail" src="/source/Experience/bathe 4.png" alt="Image 3" onclick="currentSlide(4, 1)" />
+                    <img class="thumbnail" src="/source/Experience/bTHE 5.png" alt="Image 3" onclick="currentSlide(5, 1)" />
+                    <img class="thumbnail" src="/source/Experience/bathe 6.png" alt="Image 3" onclick="currentSlide(6, 1)" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section 2 -->
+    <div class="container-experience">
+        <div class="experience">
+            <h2 id="experience-heading"><strong>Rose Accounting</strong></h2>
+            <div class="experience-text">
+                <h2>A company website to advertise accounting services.</h2>
+                <p>Website, graphics and content designed by Sky</p>
+                <div class="explore-experience">
+                    <p>Explore the images below to witness Rose Accounting</p>
+                </div>
+            </div>
+            <div class="slideshow-container" data-slideshow-id="2">
+                <button class="prev" onclick="plusSlides(-1, 2)">&#10094;</button>
+                <button class="next" onclick="plusSlides(1, 2)">&#10095;</button>
+                <div class="caption">Pricing & Terms</div>
+                <img class="main-image active" src="/source/Experience/11.png" alt="Image 1" onclick="enlargeImage(this)" />
+                <div class="caption">Homepage</div>
+                <img class="main-image" src="/source/Experience/22.png" alt="Image 2" onclick="enlargeImage(this)" />
+                <div class="caption">Become a Client</div>
+                <img class="main-image" src="/source/Experience/33.png" alt="Image 3" onclick="enlargeImage(this)" />
+                <div class="caption">Description Page</div>
+                <img class="main-image" src="/source/Experience/44.png" alt="Image 4" onclick="enlargeImage(this)" />
+
+                <div class="thumbnail-container">
+                    <img class="thumbnail" src="/source/Experience/11.png" alt="Image 1" onclick="currentSlide(1, 2)" />
+                    <img class="thumbnail" src="/source/Experience/22.png" alt="Image 2" onclick="currentSlide(2, 2)" />
+                    <img class="thumbnail" src="/source/Experience/33.png" alt="Image 3" onclick="currentSlide(3, 2)" />
+                    <img class="thumbnail" src="/source/Experience/44.png" alt="Image 4" onclick="currentSlide(4, 2)" />
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Experience Section 3 -->
+    <div class="container-experience">
+        <div class="experience">
+            <h2 id="experience-heading"><strong>Portfolio Page</strong></h2>
+            <div class="experience-text">
+                <h2>A portfolio page for a fellow junior software developer</h2>
+                <p>Website, graphics and content designed by Sky</p>
+                <div class="explore-experience">
+                    <p>Explore the images below to witness this portfolio</p>
+                </div>
+            </div>
+            <div class="slideshow-container" data-slideshow-id="3">
+                <button class="prev" onclick="plusSlides(-1, 3)">&#10094;</button>
+                <button class="next" onclick="plusSlides(1, 3)">&#10095;</button>
+                <div class="caption">About</div>
+                <img class="main-image active" src="/source/Experience/1111.png" alt="Image 1" onclick="enlargeImage(this)" />
+                <div class="caption">Contact Form</div>
+                <img class="main-image" src="/source/Experience/2222.png" alt="Image 2" onclick="enlargeImage(this)" />
+                <div class="caption">Help me Now!/div>
+                <img class="main-image" src="/source/Experience/333.png" alt="Image 3" onclick="enlargeImage(this)" />
+                <div class="caption">Home and Chatbot</div>
+                <img class="main-image" src="/source/Experience/4444.png" alt="Image 4" onclick="enlargeImage(this)" />
+
+
+                <div class="thumbnail-container">
+                    <img class="thumbnail" src="/source/Experience/1111.png" alt="Image 1" onclick="currentSlide(1, 3)" />
+                    <img class="thumbnail" src="/source/Experience/2222.png" alt="Image 2" onclick="currentSlide(2, 3)" />
+                    <img class="thumbnail" src="/source/Experience/333.png" alt="Image 3" onclick="currentSlide(3, 3)" />
+                    <img class="thumbnail" src="/source/Experience/4444.png" alt="Image 4" onclick="currentSlide(4, 3)" />
                 </div>
             </div>
         </div>
@@ -197,31 +265,30 @@
 
     <script>
         // JavaScript for Slideshow Functionality
-        let slideIndex = 1;
-        showSlides(slideIndex);
+        let slideIndices = [1, 1, 1]; // Array to keep track of slide indices for each slideshow
 
-        function plusSlides(n) {
-            showSlides(slideIndex += n);
+        function plusSlides(n, slideshowId) {
+            showSlides(slideIndices[slideshowId - 1] += n, slideshowId);
         }
 
-        function currentSlide(n) {
-            showSlides(slideIndex = n);
+        function currentSlide(n, slideshowId) {
+            showSlides(slideIndices[slideshowId - 1] = n, slideshowId);
         }
 
-        function showSlides(n) {
-            const slides = document.getElementsByClassName("main-image");
-            const captions = document.getElementsByClassName("caption");
+        function showSlides(n, slideshowId) {
+            const slides = document.querySelectorAll(`.slideshow-container[data-slideshow-id="${slideshowId}"] .main-image`);
+            const captions = document.querySelectorAll(`.slideshow-container[data-slideshow-id="${slideshowId}"] .caption`);
 
-            if (n > slides.length) { slideIndex = 1 }
-            if (n < 1) { slideIndex = slides.length }
+            if (n > slides.length) { slideIndices[slideshowId - 1] = 1 }
+            if (n < 1) { slideIndices[slideshowId - 1] = slides.length }
 
             for (let i = 0; i < slides.length; i++) {
                 slides[i].style.display = "none";
                 captions[i].style.display = "none";
             }
 
-            slides[slideIndex - 1].style.display = "block";
-            captions[slideIndex - 1].style.display = "block";
+            slides[slideIndices[slideshowId - 1] - 1].style.display = "block";
+            captions[slideIndices[slideshowId - 1] - 1].style.display = "block";
         }
 
         // Enlarge image functionality
@@ -240,13 +307,17 @@
         // Close the overlay when clicked
         function closeOverlay() {
             const overlay = document.querySelector('.overlay');
-            const arrows = document.querySelectorAll('.prev, .next'); // Get navigation arrows
 
             // Show the arrows again by removing the class
             document.body.classList.remove('no-arrows');
 
             overlay.classList.remove('active');
         }
+
+        // Initialize the first slideshow
+        showSlides(slideIndices[0], 1);
+        showSlides(slideIndices[1], 2);
+        showSlides(slideIndices[2], 3);
     </script>
 
     <script src="/portfolio.js"></script>
