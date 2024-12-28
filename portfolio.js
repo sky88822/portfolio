@@ -47,3 +47,12 @@ root.style.setProperty("--marquee-elements", marqueeContent.children.length);
 for(let i=0; i<marqueeElementsDisplayed; i++) {
   marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
 }
+
+
+
+
+
+
+$('#manualCarousel').carousel({
+  interval: 3000 // Slide will change every 3 seconds, adjust if you want to change the interval
+});
