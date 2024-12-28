@@ -10,6 +10,113 @@
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <style>
+        /* Skills page styles */
+        body {
+            margin: 0;
+            font-family: 'Fira Code', monospace;
+            overflow: hidden; /* Prevent scrolling */
+            display: flex;
+            flex-direction: column;
+            align-items: center; /* Center all content */
+            justify-content: center; /* Center vertically */
+            height: 100vh; /* Full viewport height */
+        }
+
+        .skills-bg-video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1; /* Ensures video stays behind the content */
+        }
+
+        .marquee {
+            width: 80vw; /* Adjusted for horizontal size */
+            height: 10vh; /* Adjusted for horizontal size */
+            background-color: #11111100;
+            overflow: hidden;
+            position: fixed;
+            top: 120px; /* Position marquee at the top */
+            left: 50%;
+            transform: translateX(-50%); /* Centers horizontally */
+        }
+
+        .marquee-content {
+            display: flex; /* Stacks elements horizontally */
+            animation: scrolling 10s linear infinite; /* Adjusted duration */
+        }
+
+        @keyframes scrolling {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(-50%); } /* Looping effect */
+        }
+
+        .marquee-content li {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-shrink: 0; /* Prevent shrinking */
+            height: 100%; /* Match marquee height */
+            margin: 1 0.2rem; /* Adjusted space between icons */
+            font-size: 0.2rem; /* Increased icon size */
+            white-space: nowrap;
+        }
+
+        .marquee-content li img {
+            width: 15%; /* Make the images slightly bigger */
+            border: 2px solid #eeeeee00;
+        }
+
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            margin-top: 200px;
+            margin-left: 50px;
+            z-index: 10;
+            position: fixed;
+        }
+
+        .skills-box {
+            background-color: rgba(0, 0, 0, 0.7); /* Dark background */
+            color: white;
+            padding: 20px;
+            border-radius: 10px;
+            width: 100%;
+            max-width: 800px;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow effect */
+            text-align: left; /* Align text to the left */
+            font-size: 0.9rem; /* Smaller text size */
+        }
+
+        .skills-list {
+            margin-top: 0px;
+            text-align: left; /* Align list text to the left */
+        }
+
+        .skills-list h3 {
+            font-size: 1.1rem; /* Smaller heading size */
+        }
+
+        @media (max-width: 600px) {
+            html { font-size: 12px; }
+            .marquee {
+                width: 90vw; /* Adjust width for smaller screens */
+                height: 8vh; /* Adjust height for smaller screens */
+            }
+
+            .marquee-content li {
+                font-size: calc(var(--marquee-height) * 0.4); /* Make icons smaller on mobile */
+            }
+
+            .skills-box {
+                font-size: 0.8rem; /* Smaller text size for mobile */
+            }
+        }
+    </style>
 </head>
 <body class="skills-page">
 
@@ -35,10 +142,26 @@
         </video>
     </div>
 
+    <!-- Marquee for Icons -->
+    <div class="marquee">
+      <ul class="marquee-content">
+        <li><img src="/source/icons/css.png" alt="HTML5"></li>
+        <li><img src="/source/icons/image (2).png" alt="CSS3"></li>
+        <li><img src="/source/icons/image (3).png" alt="JavaScript"></li>
+        <li><img src="/source/icons/image (4).png" alt="Ruby"></li>
+        <li><img src="/source/icons/image (5).png" alt="Git"></li>
+        <li><img src="/source/icons/Untitled design (1).png" alt="GitHub"></li>
+        <li><img src="/source/icons/image (7).png" alt="Heroku"></li>
+        <li><img src="/source/icons/sql.png" alt="Figma"></li>
+        <li><img src="/source/icons/image.png" alt="PostgreSQL"></li>
+        <li><img src="/source/icons/fffff.png" alt="PostgreS"></li>
+      </ul>
+    </div>
+
     <!-- Skills Box (Centered) -->
     <div class="skills-container">
         <div id="skills-box" class="skills-box">
-            <h2><strong>Here is a summary of my current skill set that continues to expand as I a passionately commit to continuous learning and development.</strong></h2>
+            <h2><strong>Here is a summary of my current skill set that continues to expand as I passionately commit to continuous learning and development.</strong></h2>
 
             <div class="skills-list">
                 <h3>Programming Languages:</h3>
@@ -77,22 +200,15 @@
         </div>
     </div>
 
-    <div class="marquee">
-      <ul class="marquee-content">
-        <li><img src="/source/icons/css.png" alt="HTML5"></li>
-        <li><img src="/source/icons/image (2).png" alt="CSS3"></li>
-        <li><img src="/source/icons/image (3).png" alt="JavaScript"></li>
-        <li><img src="/source/icons/image (4).png" alt="Ruby"></li>
-        <li><img src="/source/icons/image (5).png" alt="Git"></li>
-        <li><img src="/source/icons/Untitled design (1).png" alt="GitHub"></li>
-        <li><img src="/source/icons/image (7).png" alt="Heroku"></li>
-        <li><img src="/source/icons/sql.png" alt="Figma"></li>
-        <li><img src="/source/icons/image.png" alt="PostgreSQL"></li>
-        <li><img src="/source/icons/fffff.png" alt="PostgreS"></li>
-      </ul>
-    </div>
+    <script>
+        const root = document.documentElement;
+        const marqueeContent = document.querySelector("ul.marquee-content");
+        const marqueeElementsDisplayed = marqueeContent.children.length;
 
-
-    <script src="/portfolio.js"></script>
+        // Clone elements for seamless scrolling
+        for(let i = 0; i < marqueeElementsDisplayed; i++) {
+            marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+        }
+    </script>
 </body>
 </html>
