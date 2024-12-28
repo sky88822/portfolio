@@ -9,28 +9,139 @@
     <link rel="stylesheet" href="/portfolio.css">
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-  </head>
+    <style>
+        /* Basic styles for the skills page */
+        body {
+            font-family: 'Fira Code', monospace;
+            margin: 0;
+            padding: 0;
+            position: relative;
+            color: white;
+        }
 
-  <body class="skills-page">
+        .skills-bg-video-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+            z-index: -1;
+        }
 
-      <!-- Navigation Bar -->
-      <nav class="navbar">
-          <div class="navbar-left">
-              <a href="portfolio.html" class="home-link"><i class="fas fa-code"></i> Sky Harman</a>
-          </div>
-          <div class="navbar-center">
-              <a href="skills.html"><i class="fas fa-cogs"></i> Skills</a>
-              <a href="projects.html"><i class="fas fa-cube"></i> Projects</a>
-              <a href="experience.html"><i class="fas fa-laptop-code"></i> Experience</a>
-              <a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a>
-              <a href="resume.html"><i class="fas fa-file-alt"></i> Resumé</a>
-          </div>
-      </nav>
+        #skills-bg-video {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
 
-      <!-- Skills Page Background Video -->
-      <div class="skills-bg-video-container">
-          <video autoplay muted loop id="skills-bg-video">
-              <source src="/source/space.mp4" type="video/mp4">
-              Your browser does not support HTML5 video.
-          </video>
-      </div>
+        .form-container {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            background: rgba(0, 0, 0, 0.7);
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .form-container h2 {
+            margin: 0 0 10px;
+        }
+
+        .form-container p {
+            margin: 0 0 20px;
+        }
+
+        .form-container input {
+            width: 100%;
+            padding: 10px;
+            margin: 5px 0;
+            border: none;
+            border-radius: 5px;
+            font-family: 'Fira Code', monospace; /* Ensuring the same font for input */
+            color: white; /* Text color for input */
+            background-color: rgba(255, 255, 255, 0.1);
+
+        }
+
+        .form-container input::placeholder {
+            color: rgba(255, 255, 255, 0.6); /* Placeholder text color */
+            opacity: 1; /* Ensuring placeholder visibility */
+        }
+
+        .form-container button {
+            padding: 12px 20px; /* Increased padding for the button */
+            border: none;
+            border-radius: 30px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            font-family: 'Fira Code', monospace;
+            margin: 20px;
+        }
+
+        .form-container button:hover {
+            background-color: #45a049;
+        }
+    </style>
+</head>
+
+<body class="skills-page">
+
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <div class="navbar-left">
+            <a href="portfolio.html" class="home-link"><i class="fas fa-code"></i> Sky Harman</a>
+        </div>
+        <div class="navbar-center">
+            <a href="skills.html"><i class="fas fa-cogs"></i> Skills</a>
+            <a href="projects.html"><i class="fas fa-cube"></i> Projects</a>
+            <a href="experience.html"><i class="fas fa-laptop-code"></i> Experience</a>
+            <a href="education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+            <a href="resume.html"><i class="fas fa-file-alt"></i> Resumé</a>
+        </div>
+    </nav>
+
+    <!-- Skills Page Background Video -->
+    <div class="skills-bg-video-container">
+        <video autoplay muted loop id="skills-bg-video">
+            <source src="/source/space.mp4" type="video/mp4">
+            Your browser does not support HTML5 video.
+        </video>
+    </div>
+
+    <!-- Resume Request Form -->
+    <div class="form-container">
+        <h2>Request Resume</h2>
+        <p>Fill out the form below to request my resume.</p>
+        <form id="resumeRequestForm" onsubmit="sendEmail(event)">
+            <input type="text" id="firstName" name="firstName" placeholder="First Name" required>
+            <input type="text" id="lastName" name="lastName" placeholder="Last Name" required>
+            <input type="text" id="organization" name="organization" placeholder="Organization" required>
+            <input type="email" id="email" name="email" placeholder="Email Address" required>
+            <button type="submit">Send Request</button>
+        </form>
+    </div>
+
+    <script>
+        // Function to send email using mailto link
+        function sendEmail(event) {
+            event.preventDefault(); // Prevent default form submission
+            const firstName = document.getElementById('firstName').value;
+            const lastName = document.getElementById('lastName').value;
+            const organization = document.getElementById('organization').value;
+            const email = document.getElementById('email').value;
+
+            const subject = "Resume Request from " + firstName + " " + lastName;
+            const body = `Organization: ${organization}\nEmail: ${email}`;
+            const mailtoLink = `mailto:sky@sky.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+            window.location.href = mailtoLink; // Open the user's email client
+        }
+    </script>
+</body>
+
+</html>
