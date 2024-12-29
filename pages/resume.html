@@ -17,8 +17,33 @@
             padding: 0;
             position: relative;
             color: white;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh; /* Ensure the body takes at least the full height of the viewport */
         }
 
+        /* Navigation Bar */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 10px 20px;
+            position: relative; /* Ensure it stays at the top */
+            z-index: 2; /* Ensure it's above the video */
+        }
+
+        .navbar-left, .navbar-center {
+            display: flex;
+            align-items: center;
+        }
+
+        .navbar a {
+            color: white;
+            text-decoration: none;
+            margin: 0 15px;
+        }
+
+        /* Skills Page Background Video */
         .skills-bg-video-container {
             position: fixed;
             top: 0;
@@ -45,6 +70,7 @@
             border-radius: 8px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.5);
             text-align: center;
+            z-index: 1; /* Ensure the form is above the video */
         }
 
         .form-container h2 {
@@ -64,7 +90,6 @@
             font-family: 'Fira Code', monospace; /* Ensuring the same font for input */
             color: white; /* Text color for input */
             background-color: rgba(255, 255, 255, 0.1);
-
         }
 
         .form-container input::placeholder {
@@ -85,6 +110,30 @@
 
         .form-container button:hover {
             background-color: #45a049;
+        }
+
+        /* Footer Styles */
+        .footer {
+            background-color: rgba(0, 0, 0, 0.8);
+            padding: 20px;
+            text-align: center;
+            position: relative;
+            z-index: 2; /* Ensure it's above the video */
+            margin-top: auto; /* Push footer to the bottom of the page */
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-link {
+            color: white;
+            text-decoration: none;
+            margin: 0 10px;
+        }
+
+        .footer-link i {
+            margin-right: 5px; /* Space between icon and text */
         }
     </style>
 </head>
@@ -113,7 +162,6 @@
         </video>
     </div>
 
-    <!-- Resume Request Form -->
     <div class="form-container">
         <h2>Request Resume</h2>
         <p>Fill out the form below to request my resume.</p>
@@ -142,6 +190,21 @@
             window.location.href = mailtoLink; // Open the user's email client
         }
     </script>
+
+    <!-- Footer Section -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-links">
+                <a href="https://github.com/sky88822" target="_blank" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
+                <a href="https://www.linkedin.com/in/sky-h-921924342/" target="_blank" class="footer-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
+                <a href="resume.html" class="footer-link"><i class="fas fa-comment-dots"></i> Contact</a> <!-- Updated icon to message bubble -->
+            </div>
+            <div class="footer-copyright">
+                &copy; 2025 Sky Harman
+            </div>
+        </div>
+    </footer>
+
 </body>
 
 </html>
