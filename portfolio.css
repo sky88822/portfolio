@@ -78,8 +78,9 @@ body {
 }
 
 .navbar-center a:hover, .navbar-left a:hover {
-  color: #0077b5; /* Hover effect color */
+  color: #0077b5;
 }
+
 
 /* Container to position the content below the navbar */
 .container {
@@ -89,7 +90,7 @@ body {
   align-items: flex-start; /* Align items to the left */
   justify-content: center; /* Center the content vertically */
   height: 100vh; /* Full viewport height */
-  margin-top: 80px; /* Adjusting for fixed navbar */
+  margin-top: 0px; /* Adjusting for fixed navbar */
 }
 
 /* Box for homepage text */
@@ -264,5 +265,6 @@ padding-top: 60px;
 }
 
 .footer-link:hover {
-  text-decoration: underline; /* Underline on hover */
+  text-decoration: none;
+  color: #0077b5;
 }
