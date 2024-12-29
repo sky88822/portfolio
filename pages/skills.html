@@ -6,21 +6,20 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Skills - Sky Harman</title>
     <link rel="stylesheet" href="/portfolio.css">
-    <!-- Import Fira Code font from Google Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-    <!-- Font Awesome for icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         /* Skills page styles */
         body {
             margin: 0;
             font-family: 'Fira Code', monospace;
-            overflow: hidden; /* Prevent scrolling */
+            overflow-y: auto; /* Allow vertical scrolling */
             display: flex;
             flex-direction: column;
-            align-items: center; /* Center all content */
-            justify-content: center; /* Center vertically */
-            height: 100vh; /* Full viewport height */
+            align-items: center;
+            justify-content: flex-start; /* Align content to the top */
+            min-height: 100vh; /* Full viewport height */
+            padding-bottom: 100px; /* Space at the bottom for scrolling */
         }
 
         .skills-bg-video-container {
@@ -45,7 +44,7 @@
 
         .marquee-content {
             display: flex; /* Stacks elements horizontally */
-            animation: scrolling 10s linear infinite; /* Adjusted duration */
+            animation: scrolling 15s linear infinite; /* Adjusted duration for seamless scrolling */
         }
 
         @keyframes scrolling {
@@ -59,25 +58,26 @@
             align-items: center;
             flex-shrink: 0; /* Prevent shrinking */
             height: 100%; /* Match marquee height */
-            margin: 1 0.2rem; /* Adjusted space between icons */
-            font-size: 0.2rem; /* Increased icon size */
+            margin: 0 0.5rem; /* Adjusted space between icons */
+            font-size: 1.5rem; /* Increased icon size */
             white-space: nowrap;
         }
 
         .marquee-content li img {
-            width: 15%; /* Make the images slightly bigger */
+            width: 50px; /* Make the images slightly bigger */
             border: 2px solid #eeeeee00;
         }
 
         .skills-container {
             display: flex;
             flex-direction: column;
-            justify-content: center;
+            justify-content: flex-start; /* Align to the top */
             align-items: center;
-            margin-top: 200px;
-            margin-left: 50px;
+            margin-top: 150px; /* Space from the top */
             z-index: 10;
-            position: fixed;
+            position: fixed; /* Allow scrolling */
+            width: 100%; /* Full width */
+            padding: 20px; /* Add padding */
         }
 
         .skills-box {
@@ -89,16 +89,16 @@
             max-width: 800px;
             box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow effect */
             text-align: left; /* Align text to the left */
-            font-size: 0.9rem; /* Smaller text size */
+            font-size: 1rem; /* Standard text size */
         }
 
         .skills-list {
-            margin-top: 0px;
+            margin-top: 20px; /* Space above the list */
             text-align: left; /* Align list text to the left */
         }
 
         .skills-list h3 {
-            font-size: 1.1rem; /* Smaller heading size */
+            font-size: 1.2rem; /* Heading size */
         }
 
         @media (max-width: 600px) {
@@ -109,11 +109,11 @@
             }
 
             .marquee-content li {
-                font-size: calc(var(--marquee-height) * 0.4); /* Make icons smaller on mobile */
+                font-size: 1rem; /* Make icons smaller on mobile */
             }
 
             .skills-box {
-                font-size: 0.8rem; /* Smaller text size for mobile */
+                font-size: 0.9rem; /* Smaller text size for mobile */
             }
         }
     </style>
@@ -161,7 +161,7 @@
     <!-- Skills Box (Centered) -->
     <div class="skills-container">
         <div id="skills-box" class="skills-box">
-            <h2><strong>Here is a summary of my current skill set that continues to expand as I passionately commit to continuous learning and development.</strong></h2>
+            <h2><strong></strong></h2>
 
             <div class="skills-list">
                 <h3>Programming Languages:</h3>
@@ -201,7 +201,6 @@
     </div>
 
     <script>
-        const root = document.documentElement;
         const marqueeContent = document.querySelector("ul.marquee-content");
         const marqueeElementsDisplayed = marqueeContent.children.length;
 
