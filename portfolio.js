@@ -1,52 +1,45 @@
-document.addEventListener("DOMContentLoaded", function() {
-  const welcomeTranslations = ["Welcome", "Bienvenido", "Bienvenue", "Willkommen", "Bienvenue", "Benvenuto"];
-  let currentTranslationIndex = 0;
+const welcomeMessages = [
+  "Welcome",
+  "Bienvenido",
+  "Bienvenue",
+  "Willkommen",
+  "Benvenuto"
+];
 
-  const welcomeTextElement = document.getElementById("welcome-text");
+const welcomeTextElement = document.getElementById("welcome-text");
 
-  function typewrite(element, text, speed = 100) {
-      element.textContent = '';
-      let i = 0;
+let isTyping = false;
+let messageIndex = 0;
+const letterDelay = 100;
+const messageDelay = 1000;
 
-      function typing() {
-          if (i < text.length) {
-              element.textContent += text.charAt(i);
-              i++;
-              setTimeout(typing, speed);
-          }
-      }
+function typeWelcomeMessage(message) {
+  if (isTyping) return;
 
-      typing();
+  let currentIndex = 0;
+  welcomeTextElement.textContent = "";
+  isTyping = true;
+
+  // Function to type the next letter
+  function typeNextLetter() {
+    if (currentIndex < message.length) {
+      welcomeTextElement.textContent += message[currentIndex];
+      currentIndex++;
+      setTimeout(typeNextLetter, letterDelay);
+    } else {
+      setTimeout(() => {
+        isTyping = false;
+        iterateMessages();
+      }, messageDelay);
+    }
   }
 
+  typeNextLetter();
+}
 
-  function changeWelcomeText() {
+function iterateMessages() {
+  messageIndex = (messageIndex + 1) % welcomeMessages.length;
+  typeWelcomeMessage(welcomeMessages[messageIndex]);
+}
 
-      const currentTranslation = welcomeTranslations[currentTranslationIndex];
-
-
-      typewrite(welcomeTextElement, currentTranslation, 150);
-
-
-      currentTranslationIndex = (currentTranslationIndex + 1) % welcomeTranslations.length;
-  }
-
-
-  changeWelcomeText();
-  setInterval(changeWelcomeText, 3000);
-});
-
-// const root = document.documentElement;
-// const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-// const marqueeContent = document.querySelector("ul.marquee-content");
-
-// root.style.setProperty("--marquee-elements", marqueeContent.children.length);
-
-// for(let i=0; i<marqueeElementsDisplayed; i++) {
-//   marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-// }
-
-
-$('#manualCarousel').carousel({
-  interval: 3000 
-});
+typeWelcomeMessage(welcomeMessages[messageIndex]);
