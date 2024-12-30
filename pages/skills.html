@@ -1,282 +1,300 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Skills - Sky Harman</title>
-    <link rel="stylesheet" href="../portfolio.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Skills page styles */
-        body {
-            margin: 0;
-            font-family: 'Fira Code', monospace;
-            display: flex;
-            flex-direction: column;
-            min-height: 100vh; /* Full viewport height */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Skills - Sky Harman</title>
+  <link rel="stylesheet" href="../portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Fira Code', monospace;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        .skills-bg-video-container {
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            z-index: -1; /* Ensures video stays behind the content */
-        }
+    .skills-bg-video-container {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      z-index: -1;
+    }
 
-        .skills-container {
-            flex: 1; /* Allow the skills container to grow and take available space */
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start; /* Align to the top */
-            align-items: center;
-            margin-top: 50px; /* Space from the top */
-            z-index: 10;
-            position: relative; /* Allow scrolling */
-            width: 100%; /* Full width */
-            padding: 20px; /* Add padding */
-        }
+    .skills-container {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-start;
+      align-items: center;
+      margin-top: 50px;
+      z-index: 10;
+      position: relative;
+      width: 100%;
+      padding: 20px;
+    }
 
-        .skills-box {
-            background-color: rgba(0, 0, 0, 0.7); /* Dark background */
-            color: white;
-            padding: 20px;
-            border-radius: 10px;
-            width: 100%;
-            max-width: 800px;
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5); /* Optional shadow effect */
-            text-align: left; /* Align text to the left */
-            font-size: 1rem; /* Standard text size */
-        }
+    .skills-box {
+      background-color: rgba(0, 0, 0, 0.7);
+      color: white;
+      padding: 20px;
+      border-radius: 10px;
+      width: 100%;
+      max-width: 800px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.5);
+      text-align: left;
+      font-size: 1rem;
+    }
 
-        /* Marquee styles */
-        :root {
-            --marquee-width: 80vw;
-            --marquee-height: 20vh;
-            --marquee-elements: 12; /* This will be set dynamically */
-            --marquee-elements-displayed: 5;
-            --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
-            --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
-        }
+    :root {
+      --marquee-width: 80vw;
+      --marquee-height: 20vh;
+      --marquee-elements: 12;
+      --marquee-elements-displayed: 5;
+      --marquee-element-width: calc(var(--marquee-width) / var(--marquee-elements-displayed));
+      --marquee-animation-duration: calc(var(--marquee-elements) * 3s);
+    }
 
-        .marquee {
-            width: var(--marquee-width);
-            height: var(--marquee-height);
-            background-color: #11111100;
-            color: #eee;
-            overflow: hidden;
-            position: relative;
-            margin: 20px auto; /* Center horizontally */
-            transform: translateY(30px); /* Move the marquee down by 30px */
-        }
+    .marquee {
+      width: var(--marquee-width);
+      height: var(--marquee-height);
+      background-color: #11111100;
+      color: #eee;
+      overflow: hidden;
+      position: relative;
+      margin: 20px auto;
+      transform: translateY(30px);
+    }
 
-        .marquee:before, .marquee:after {
-            position: absolute;
-            top: 0;
-            width: 10rem;
-            height: 100%;
-            content: "";
-            z-index: 1;
-        }
+    .marquee:before,
+    .marquee:after {
+      position: absolute;
+      top: 0;
+      width: 10rem;
+      height: 100%;
+      content: "";
+      z-index: 1;
+    }
 
-        .marquee:before {
-            left: 0;
-            background: linear-gradient(to right, #111 0%, transparent 100%);
-        }
+    .marquee:before {
+      left: 0;
+      background: linear-gradient(to right, #111 0%, transparent 100%);
+    }
 
-        .marquee:after {
-            right: 0;
-            background: linear-gradient(to left, #111 0%, transparent 100%);
-        }
+    .marquee:after {
+      right: 0;
+      background: linear-gradient(to left, #111 0%, transparent 100%);
+    }
 
-        .marquee-content {
-            list-style: none;
-            height: 100%;
-            display: flex;
-            animation: scrolling var(--marquee-animation-duration) linear infinite;
-        }
+    .marquee-content {
+      list-style: none;
+      height: 100%;
+      display: flex;
+      animation: scrolling var(--marquee-animation-duration) linear infinite;
+    }
 
-        @keyframes scrolling {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements))); }
-        }
+    @keyframes scrolling {
+      0% {
+        transform: translateX(0);
+      }
 
-        .marquee-content li {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-shrink: 0;
-            width: var(--marquee-element-width);
-            max-height: 100%;
-            font-size: calc(var(--marquee-height) * 3 / 4);
-        }
+      100% {
+        transform: translateX(calc(-1 * var(--marquee-element-width) * var(--marquee-elements)));
+      }
+    }
 
-        .marquee-content li img {
-            width: 60%; /* Adjust size of icons */
-            border: 2px solid #eeeeee00;
-            height: 80%;
-        }
+    .marquee-content li {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      flex-shrink: 0;
+      width: var(--marquee-element-width);
+      max-height: 100%;
+      font-size: calc(var(--marquee-height) * 3 / 4);
+    }
 
-        /* Responsive styles */
-        @media (max-width: 600px) {
-            html { font-size: 12px; }
-            :root {
-                --marquee-width: 100vw;
-                --marquee-height: 16vh;
-                --marquee-elements-displayed: 3;
-            }
-            .marquee:before, .marquee:after { width: 5rem; }
-        }
+    .marquee-content li img {
+      width: 60%;
+      border: 2px solid #eeeeee00;
+      height: 80%;
+    }
 
-        /* Footer styles */
-        .footer {
-            background-color: rgba(51, 51, 51, 0); /* Semi-transparent background */
-            color: white; /* Text color */
-            text-align: center; /* Center the text */
-            padding: 20px 0; /* Padding for spacing */
-            width: 100%; /* Full width */
-            border-radius: 10px; /* Rounded corners */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Optional shadow for depth */
-        }
 
-        .footer-content {
-            display: flex; /* Use flexbox for layout */
-            justify-content: space-between; /* Space out links and copyright */
-            align-items: center; /* Center items vertically */
-            max-width: 1200px; /* Max width for content */
-            margin: 0 auto; /* Center the footer content */
-            padding: 0 20px; /* Padding for spacing */
-        }
+    @media (max-width: 600px) {
+      html {
+        font-size: 12px;
+      }
 
-        .footer-links {
-            display: flex; /* Flexbox for links */
-        }
+      :root {
+        --marquee-width: 100vw;
+        --marquee-height: 16vh;
+        --marquee-elements-displayed: 3;
+      }
 
-        .footer-link {
-            color: white; /* Link color */
-            text-decoration: none; /* Remove underline */
-            margin: 0 15px; /* Spacing between links */
-        }
+      .marquee:before,
+      .marquee:after {
+        width: 5rem;
+      }
+    }
 
-        .footer-link:hover {
-         text-decoration: none;
-         color: #0077b5;
-}
-    </style>
+
+    .footer {
+      background-color: rgba(51, 51, 51, 0);
+      color: white;
+      text-align: center;
+      padding: 20px 0;
+      width: 100%;
+      border-radius: 10px;
+      box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5);
+    }
+
+    .footer-content {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+    }
+
+    .footer-links {
+      display: flex;
+    }
+
+    .footer-link {
+      color: white;
+      text-decoration: none;
+      margin: 0 15px;
+    }
+
+    .footer-link:hover {
+      text-decoration: none;
+      color: #0077b5;
+    }
+  </style>
 </head>
+
 <body class="skills-page">
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-left">
-            <a href="../index.html" class="home-link"><i class="fas fa-code"></i> Sky Harman</a>
-        </div>
-        <div class="navbar-center">
-            <a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a>
-            <a href="./projects.html"><i class="fas fa-cube"></i> Projects</a>
-            <a href="./experience.html"><i class="fas fa-laptop-code"></i> Experience</a>
-            <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
-            <a href="./resume.html"><i class="fas fa-file-alt"></i> Resumé</a>
-        </div>
-    </nav>
 
-    <!-- Skills Page Background Video -->
-    <div class="skills-bg-video-container">
-        <video autoplay muted loop id="skills-bg-video">
-            <source src="../source/space.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="../index.html" class="home-link"><i class="fas fa-code"></i> Sky Harman</a>
     </div>
-
-    <!-- Marquee for Icons -->
-    <div class="marquee">
-        <ul class="marquee-content">
-            <li><img src="../source/icons/css.png" alt="HTML5"></li>
-            <li><img src="../source/icons/image (2).png" alt="CSS3"></li>
-            <li><img src="../source/icons/image (3).png" alt="JavaScript"></li>
-            <li><img src="../source/icons/image (4).png" alt="Ruby"></li>
-            <li><img src="../source/icons/image (5).png" alt="Git"></li>
-            <li><img src="../source/icons/Untitled design (1).png" alt="GitHub"></li>
-            <li><img src="../source/icons/image (7).png" alt="Heroku"></li>
-            <li><img src="../source/icons/sql.png" alt="Figma"></li>
-            <li><img src="../source/icons/image.png" alt="PostgreSQL"></li>
-            <li><img src="../source/icons/fffff.png" alt="PostgreS"></li>
-        </ul>
+    <div class="navbar-center">
+      <a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a>
+      <a href="./projects.html"><i class="fas fa-cube"></i> Projects</a>
+      <a href="./experience.html"><i class="fas fa-laptop-code"></i> Experience</a>
+      <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+      <a href="./resume.html"><i class="fas fa-file-alt"></i> Resumé</a>
     </div>
+  </nav>
 
-    <!-- Skills Box (Centered) -->
-    <div class="skills-container">
-        <div id="skills-box" class="skills-box">
-            <h2><strong>Skills Overview</strong></h2>
 
-            <div class="skills-list">
-                <h3>Programming Languages:</h3>
-                <p>HTML, CSS, JavaScript (TypeScript), Ruby</p>
+  <div class="skills-bg-video-container">
+    <video autoplay muted loop id="skills-bg-video">
+      <source src="../source/space.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-                <h3>Frameworks and Libraries:</h3>
-                <p>Ruby on Rails, Bootstrap, StimulusJS, Mustache.js</p>
 
-                <h3>Databases and Query Languages:</h3>
-                <p>SQL, PostgreSQL</p>
+  <div class="marquee">
+    <ul class="marquee-content">
+      <li><img src="../source/icons/css.png" alt="HTML5"></li>
+      <li><img src="../source/icons/image (2).png" alt="CSS3"></li>
+      <li><img src="../source/icons/image (3).png" alt="JavaScript"></li>
+      <li><img src="../source/icons/image (4).png" alt="Ruby"></li>
+      <li><img src="../source/icons/image (5).png" alt="Git"></li>
+      <li><img src="../source/icons/Untitled design (1).png" alt="GitHub"></li>
+      <li><img src="../source/icons/image (7).png" alt="Heroku"></li>
+      <li><img src="../source/icons/sql.png" alt="Figma"></li>
+      <li><img src="../source/icons/image.png" alt="PostgreSQL"></li>
+      <li><img src="../source/icons/fffff.png" alt="PostgreS"></li>
+    </ul>
+  </div>
 
-                <h3>Version Control and Collaboration Tools:</h3>
-                <p>Git, GitHub</p>
 
-                <h3>Testing and Debugging:</h3>
-                <p>Pry (Ruby Debugger), RSpec (Testing Framework)</p>
+  <div class="skills-container">
+    <div id="skills-box" class="skills-box">
+      <h2><strong>Skills Overview</strong></h2>
 
-                <h3>APIs and Integration:</h3>
-                <p>RESTful APIs, JSON</p>
+      <div class="skills-list">
+        <h3>Programming Languages:</h3>
+        <p>HTML, CSS, JavaScript (TypeScript), Ruby</p>
 
-                <h3>Scripting and Command Line Tools:</h3>
-                <p>Bash, Ubuntu</p>
+        <h3>Frameworks and Libraries:</h3>
+        <p>Ruby on Rails, Bootstrap, StimulusJS, Mustache.js</p>
 
-                <h3>Deployment and Hosting Platforms:</h3>
-                <p>Heroku</p>
+        <h3>Databases and Query Languages:</h3>
+        <p>SQL, PostgreSQL</p>
 
-                <h3>Design and Prototyping Tools:</h3>
-                <p>Figma</p>
+        <h3>Version Control and Collaboration Tools:</h3>
+        <p>Git, GitHub</p>
 
-                <h3>Development Methodologies and Practices:</h3>
-                <p>Agile development, Pair programming, Scrum workflows</p>
+        <h3>Testing and Debugging:</h3>
+        <p>Pry (Ruby Debugger), RSpec (Testing Framework)</p>
 
-                <h3>Other:</h3>
-                <p>Object-Oriented Programming (OOP), MVC (Model-View-Controller) architecture, Responsive design principles, Authentication and authorization systems, Cloud storage integration, DOM, AJAX, AI API, CMS Platforms, VS Code, HTTP</p>
-            </div>
-        </div>
+        <h3>APIs and Integration:</h3>
+        <p>RESTful APIs, JSON</p>
+
+        <h3>Scripting and Command Line Tools:</h3>
+        <p>Bash, Ubuntu</p>
+
+        <h3>Deployment and Hosting Platforms:</h3>
+        <p>Heroku</p>
+
+        <h3>Design and Prototyping Tools:</h3>
+        <p>Figma</p>
+
+        <h3>Development Methodologies and Practices:</h3>
+        <p>Agile development, Pair programming, Scrum workflows</p>
+
+        <h3>Other:</h3>
+        <p>Object-Oriented Programming (OOP), MVC (Model-View-Controller) architecture, Responsive design principles,
+          Authentication and authorization systems, Cloud storage integration, DOM, AJAX, AI API, CMS Platforms, VS
+          Code, HTTP</p>
+      </div>
     </div>
+  </div>
 
-    <script>
-        // Set the number of elements in the marquee
-        const root = document.documentElement;
-        const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
-        const marqueeContent = document.querySelector("ul.marquee-content");
+  <script>
 
-        // Set the total number of marquee elements
-        root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+    const root = document.documentElement;
+    const marqueeElementsDisplayed = getComputedStyle(root).getPropertyValue("--marquee-elements-displayed");
+    const marqueeContent = document.querySelector("ul.marquee-content");
 
-        // Clone elements for continuous scrolling effect
-        for (let i = 0; i < marqueeElementsDisplayed; i++) {
-            marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
-        }
-    </script>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <div class="footer-links">
-                <a href="https://github.com/sky88822" target="_blank" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
-                <a href="https://www.linkedin.com/in/sky-h-921924342/" target="_blank" class="footer-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-                <a href="./resume.html" class="footer-link"><i class="fas fa-comment-dots"></i> Contact</a>
-            </div>
-            <div class="footer-copyright">
-                &copy; 2025 Sky Harman
-            </div>
-        </div>
-    </footer>
+    root.style.setProperty("--marquee-elements", marqueeContent.children.length);
+
+
+    for (let i = 0; i < marqueeElementsDisplayed; i++) {
+      marqueeContent.appendChild(marqueeContent.children[i].cloneNode(true));
+    }
+  </script>
+
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://github.com/sky88822" target="_blank" class="footer-link"><i class="fab fa-github"></i>
+          GitHub</a>
+        <a href="https://www.linkedin.com/in/sky-h-921924342/" target="_blank" class="footer-link"><i
+            class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="./resume.html" class="footer-link"><i class="fas fa-comment-dots"></i> Contact</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2025 Sky Harman
+      </div>
+    </div>
+  </footer>
 
 </body>
+
 </html>

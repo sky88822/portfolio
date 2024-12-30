@@ -2,337 +2,324 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Skills - Sky Harman</title>
-    <link rel="stylesheet" href="../portfolio.css">
-    <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
-    <style>
-        /* Slideshow Styles */
-        .slideshow-container {
-            position: relative;
-            max-width: 100%;
-            margin: auto;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Skills - Sky Harman</title>
+  <link rel="stylesheet" href="../portfolio.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <style>
+    .slideshow-container {
+      position: relative;
+      max-width: 100%;
+      margin: auto;
+    }
 
-        .main-image {
-            display: none;
-            width: 100%;
-            height: auto;
-            cursor: pointer;
-            transition: transform 0.3s ease;
-        }
+    .main-image {
+      display: none;
+      width: 100%;
+      height: auto;
+      cursor: pointer;
+      transition: transform 0.3s ease;
+    }
 
-        .main-image.enlarged {
-            transform: scale(1.1);
-        }
+    .main-image.enlarged {
+      transform: scale(1.1);
+    }
 
-        .active {
-            display: block;
-        }
+    .active {
+      display: block;
+    }
 
-        .caption {
-            text-align: center;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            padding: 40px;
-            margin-bottom: 20px;
-            position: relative;
-            z-index: 2;
-            font-size: 1.2rem;
-        }
+    .caption {
+      text-align: center;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      padding: 40px;
+      margin-bottom: 20px;
+      position: relative;
+      z-index: 2;
+      font-size: 1.2rem;
+    }
 
-.thumbnail-container {
-    display: flex;
-    justify-content: center;
-    margin-top: 10px;
-    margin-bottom: 10px;
-    flex-wrap: wrap; /* Allow thumbnails to wrap onto a new line */
-    gap: 10px; /* Add space between thumbnails, including those on the second line */
-}
+    .thumbnail-container {
+      display: flex;
+      justify-content: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
 
-.thumbnail {
-    width: 80px;
-    height: 80px;
-    cursor: pointer;
-    opacity: 0.6;
-    transition: opacity 0.3s;
-}
+    .thumbnail {
+      width: 80px;
+      height: 80px;
+      cursor: pointer;
+      opacity: 0.6;
+      transition: opacity 0.3s;
+    }
 
 
-        .thumbnail:hover {
-            opacity: 1;
-        }
+    .thumbnail:hover {
+      opacity: 1;
+    }
 
-        /* Navigation Arrows */
-        .prev,
-        .next {
-            position: absolute;
-            top: 50%;
-            padding: 16px;
-            background-color: rgba(0, 0, 0, 0.5);
-            color: white;
-            border: none;
-            cursor: pointer;
-            font-size: 18px;
-            transition: 0.3s;
-            border-radius: 50%;
-            z-index: 3;
-            transform: translateY(-50%);
-        }
+    .prev,
+    .next {
+      position: absolute;
+      top: 50%;
+      padding: 16px;
+      background-color: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      cursor: pointer;
+      font-size: 18px;
+      transition: 0.3s;
+      border-radius: 50%;
+      z-index: 3;
+      transform: translateY(-50%);
+    }
 
-        .prev {
-            left: 10px;
-        }
+    .prev {
+      left: 10px;
+    }
 
-        .next {
-            right: 10px;
-        }
+    .next {
+      right: 10px;
+    }
 
-        .prev:hover,
-        .next:hover {
-            background-color: rgba(0, 0, 0, 0.8);
-        }
+    .prev:hover,
+    .next:hover {
+      background-color: rgba(0, 0, 0, 0.8);
+    }
 
-        /* Overlay to dim the background when enlarged image is active */
-        .overlay {
-            display: none;
-            position: fixed;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background-color: rgba(0, 0, 0, 0.7);
-            z-index: 2;
-        }
+    .overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.7);
+      z-index: 2;
+    }
 
-        .overlay.active {
-            display: block;
-        }
+    .overlay.active {
+      display: block;
+    }
 
-        .overlay img {
-            max-width: 90%;
-            max-height: 90%;
-            margin: auto;
-            display: block;
-            position: absolute;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-        }
+    .overlay img {
+      max-width: 90%;
+      max-height: 90%;
+      margin: auto;
+      display: block;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+    }
 
-        /* Hide arrows when 'no-arrows' class is added to the body */
-        body.no-arrows .prev,
-        body.no-arrows .next {
-            display: none;
-        }
-    </style>
+    body.no-arrows .prev,
+    body.no-arrows .next {
+      display: none;
+    }
+  </style>
 </head>
 
 <body class="skills-page">
 
-    <!-- Navigation Bar -->
-    <nav class="navbar">
-        <div class="navbar-left">
-            <a href="../index.html" class="home-link"><i class="fas fa-code"></i> Sky Harman</a>
-        </div>
-        <div class="navbar-center">
-            <a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a>
-            <a href="./projects.html"><i class="fas fa-cube"></i> Projects</a>
-            <a href="./experience.html"><i class="fas fa-laptop-code"></i> Experience</a>
-            <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
-            <a href="./resume.html"><i class="fas fa-file-alt"></i> Resumé</a>
-        </div>
-    </nav>
-
-    <!-- Skills Page Background Video -->
-    <div class="skills-bg-video-container">
-        <video autoplay muted loop id="skills-bg-video">
-            <source src="../source/space.mp4" type="video/mp4">
-            Your browser does not support HTML5 video.
-        </video>
+  <nav class="navbar">
+    <div class="navbar-left">
+      <a href="../index.html" class="home-link"><i class="fas fa-code"></i> Sky Harman</a>
     </div>
+    <div class="navbar-center">
+      <a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a>
+      <a href="./projects.html"><i class="fas fa-cube"></i> Projects</a>
+      <a href="./experience.html"><i class="fas fa-laptop-code"></i> Experience</a>
+      <a href="./education.html"><i class="fas fa-graduation-cap"></i> Education</a>
+      <a href="./resume.html"><i class="fas fa-file-alt"></i> Resumé</a>
+    </div>
+  </nav>
 
-    <!-- Experience Section 1 -->
-    <div class="container-experience">
-        <div class="experience">
-            <h2 id="experience-heading"><strong>Bathe</strong></h2>
-            <div class="experience-text">
-                <h2>A company website to display bespoke products</h2>
-                <p>Website, graphics and content designed by Sky</p>
-                <div class="explore-experience">
-                    <p>Explore the images below to witness Bathe</p>
-                </div>
-            </div>
-            <div class="slideshow-container" data-slideshow-id="1">
-                <button class="prev" onclick="plusSlides(-1, 1)">&#10094;</button>
-                <button class="next" onclick="plusSlides(1, 1)">&#10095;</button>
-                <div class="caption">Bathe Blog</div>
-                <img class="main-image active" src="../source/Experience/bathe 1.png" alt="Image 1" onclick="enlargeImage(this)" />
-                <div class="caption">Bathe Homepage</div>
-                <img class="main-image" src="../source/Experience/bathe 2.png" alt="Image 2" onclick="enlargeImage(this)" />
-                <div class="caption">The Art of Bathe</div>
-                <img class="main-image" src="../source/Experience/bathe 3.png" alt="Image 3" onclick="enlargeImage(this)" />
-                <div class="caption">Contact Form</div>
-                <img class="main-image" src="../source/Experience/bathe 4.png" alt="Image 4" onclick="enlargeImage(this)" />
-                <div class="caption">Bathe Philosophy</div>
-                <img class="main-image" src="../source/Experience/bTHE 5.png" alt="Image 5" onclick="enlargeImage(this)" />
-                <div class="caption">Bathe extract</div>
-                <img class="main-image" src="../source/Experience/bathe 6.png" alt="Image 6" onclick="enlargeImage(this)" />
+  <div class="skills-bg-video-container">
+    <video autoplay muted loop id="skills-bg-video">
+      <source src="../source/space.mp4" type="video/mp4">
+      Your browser does not support HTML5 video.
+    </video>
+  </div>
 
-                <div class="thumbnail-container">
-                    <img class="thumbnail" src="../source/Experience/bathe 1.png" alt="Image 1" onclick="currentSlide(1, 1)" />
-                    <img class="thumbnail" src="../source/Experience/bathe 2.png" alt="Image 2" onclick="currentSlide(2, 1)" />
-                    <img class="thumbnail" src="../source/Experience/bathe 3.png" alt="Image 3" onclick="currentSlide(3, 1)" />
-                    <img class="thumbnail" src="../source/Experience/bathe 4.png" alt="Image 4" onclick="currentSlide(4, 1)" />
-                    <img class="thumbnail" src="../source/Experience/bTHE 5.png" alt="Image 5" onclick="currentSlide(5, 1)" />
-                    <img class="thumbnail" src="../source/Experience/bathe 6.png" alt="Image 6" onclick="currentSlide(6, 1)" />
-                </div>
-            </div>
+  <div class="container-experience">
+    <div class="experience">
+      <h2 id="experience-heading"><strong>Bathe</strong></h2>
+      <div class="experience-text">
+        <h2>A company website to display bespoke products</h2>
+        <p>Website, graphics and content designed by Sky</p>
+        <div class="explore-experience">
+          <p>Explore the images below to witness Bathe</p>
         </div>
-    </div>
-
-    <!-- Experience Section 2 -->
-    <div class="container-experience">
-        <div class="experience">
-            <h2 id="experience-heading"><strong>Rose Accounting</strong></h2>
-            <div class="experience-text">
-                <h2>A company website to advertise accounting services</h2>
-                <p>Website, graphics and content designed by Sky</p>
-                <div class="explore-experience">
-                    <p>Explore the images below to witness Rose Accounting</p>
-                </div>
-            </div>
-            <div class="slideshow-container" data-slideshow-id="2">
-                <button class="prev" onclick="plusSlides(-1, 2)">&#10094;</button>
-                <button class="next" onclick="plusSlides(1, 2)">&#10095;</button>
-                <div class="caption">Pricing & Terms</div>
-                <img class="main-image active" src="../source/Experience/11.png" alt="Image 1" onclick="enlargeImage(this)" />
-                <div class="caption">Homepage</div>
-                <img class="main-image" src="../source/Experience/22.png" alt="Image 2" onclick="enlargeImage(this)" />
-                <div class="caption">Become a Client</div>
-                <img class="main-image" src="../source/Experience/33.png" alt="Image 3" onclick="enlargeImage(this)" />
-                <div class="caption">Description Page</div>
-                <img class="main-image" src="../source/Experience/44.png" alt="Image 4" onclick="enlargeImage(this)" />
-
-                <div class="thumbnail-container">
-                    <img class="thumbnail" src="../source/Experience/11.png" alt="Image 1" onclick="currentSlide(1, 2)" />
-                    <img class="thumbnail" src="../source/Experience/22.png" alt="Image 2" onclick="currentSlide(2, 2)" />
-                    <img class="thumbnail" src="../source/Experience/33.png" alt="Image 3" onclick="currentSlide(3, 2)" />
-                    <img class="thumbnail" src="../source/Experience/44.png" alt="Image 4" onclick="currentSlide(4, 2)" />
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Experience Section 3 -->
-    <div class="container-experience">
-        <div class="experience">
-            <h2 id="experience-heading"><strong>Portfolio Page</strong></h2>
-            <div class="experience-text">
-                <h2>A portfolio page for a fellow junior software developer</h2>
-                <p>Website, graphics and content designed by Sky</p>
-                <div class="explore-experience">
-                    <p>Explore the images below to witness this portfolio</p>
-                </div>
-            </div>
-            <div class="slideshow-container" data-slideshow-id="3">
-                <button class="prev" onclick="plusSlides(-1, 3)">&#10094;</button>
-                <button class="next" onclick="plusSlides(1, 3)">&#10095;</button>
-                <div class="caption">About</div>
-                <img class="main-image active" src="../source/Experience/1111.png" alt="Image 1" onclick="enlargeImage(this)" />
-                <div class="caption">Contact Form</div>
-                <img class="main-image" src="../source/Experience/2222.png" alt="Image 2" onclick="enlargeImage(this)" />
-                <div class="caption">Help me Now!</div>
-                <img class="main-image" src="../source/Experience/333.png" alt="Image 3" onclick="enlargeImage(this)" />
-                <div class="caption">Home and Chatbot</div>
-                <img class="main-image" src="../source/Experience/4444.png" alt="Image 4" onclick="enlargeImage(this)" />
-
-                <div class="thumbnail-container">
-                    <img class="thumbnail" src="../source/Experience/1111.png" alt="Image 1" onclick="currentSlide(1, 3)" />
-                    <img class="thumbnail" src="../source/Experience/2222.png" alt="Image 2" onclick="currentSlide(2, 3)" />
-                    <img class="thumbnail" src="../source/Experience/333.png" alt="Image 3" onclick="currentSlide(3, 3)" />
-                    <img class="thumbnail" src="../source/Experience/4444.png" alt="Image 4" onclick="currentSlide(4, 3)" />
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Overlay for Enlarged Image -->
-    <div class="overlay" onclick="closeOverlay()">
-        <img id="overlay-img" src="" alt="Enlarged Image" />
-    </div>
-
-    <script>
-        // JavaScript for Slideshow Functionality
-        let slideIndices = [1, 1, 1]; // Array to keep track of slide indices for each slideshow
-
-        function plusSlides(n, slideshowId) {
-            showSlides(slideIndices[slideshowId - 1] += n, slideshowId);
-        }
-
-        function currentSlide(n, slideshowId) {
-            showSlides(slideIndices[slideshowId - 1] = n, slideshowId);
-        }
-
-        function showSlides(n, slideshowId) {
-            const slides = document.querySelectorAll(`.slideshow-container[data-slideshow-id="${slideshowId}"] .main-image`);
-            const captions = document.querySelectorAll(`.slideshow-container[data-slideshow-id="${slideshowId}"] .caption`);
-
-            // Loop through slides and captions to hide/show based on current index
-            if (n > slides.length) { slideIndices[slideshowId - 1] = 1 }
-            if (n < 1) { slideIndices[slideshowId - 1] = slides.length }
-
-            slides.forEach((slide, index) => {
-                slide.style.display = (index === slideIndices[slideshowId - 1] - 1) ? "block" : "none";
-                captions[index].style.display = (index === slideIndices[slideshowId - 1] - 1) ? "block" : "none";
-            });
-        }
-
-        // Enlarge image functionality
-        function enlargeImage(img) {
-            const overlay = document.querySelector('.overlay');
-            const overlayImg = document.getElementById('overlay-img');
-
-            // Hide the arrows by adding a class that hides them
-            document.body.classList.add('no-arrows');
-
-            overlayImg.src = img.src;
-            overlay.classList.add('active');
-        }
-
-        // Close the overlay when clicked
-        function closeOverlay() {
-            const overlay = document.querySelector('.overlay');
-
-            // Show the arrows again by removing the class
-            document.body.classList.remove('no-arrows');
-
-            overlay.classList.remove('active');
-        }
-
-        // Initialize the first slideshow
-        showSlides(slideIndices[0], 1);
-        showSlides(slideIndices[1], 2);
-        showSlides(slideIndices[2], 3);
-    </script>
-
-    <script src="../portfolio.js"></script>
-
-    <footer class="footer">
-      <div class="footer-content">
-          <div class="footer-links">
-              <a href="https://github.com/sky88822" target="_blank" class="footer-link"><i class="fab fa-github"></i> GitHub</a>
-              <a href="https://www.linkedin.com/in/sky-h-921924342/" target="_blank" class="footer-link"><i class="fab fa-linkedin"></i> LinkedIn</a>
-              <a href="./resume.html" class="footer-link"><i class="fas fa-comment-dots"></i> Contact</a> <!-- Updated icon to message bubble -->
-          </div>
-          <div class="footer-copyright">
-              &copy; 2025 Sky Harman
-          </div>
       </div>
-    </footer>
+      <div class="slideshow-container" data-slideshow-id="1">
+        <button class="prev" onclick="plusSlides(-1, 1)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1, 1)">&#10095;</button>
+        <div class="caption">Bathe Blog</div>
+        <img class="main-image active" src="../source/Experience/bathe 1.png" alt="Image 1"
+          onclick="enlargeImage(this)" />
+        <div class="caption">Bathe Homepage</div>
+        <img class="main-image" src="../source/Experience/bathe 2.png" alt="Image 2" onclick="enlargeImage(this)" />
+        <div class="caption">The Art of Bathe</div>
+        <img class="main-image" src="../source/Experience/bathe 3.png" alt="Image 3" onclick="enlargeImage(this)" />
+        <div class="caption">Contact Form</div>
+        <img class="main-image" src="../source/Experience/bathe 4.png" alt="Image 4" onclick="enlargeImage(this)" />
+        <div class="caption">Bathe Philosophy</div>
+        <img class="main-image" src="../source/Experience/bTHE 5.png" alt="Image 5" onclick="enlargeImage(this)" />
+        <div class="caption">Bathe extract</div>
+        <img class="main-image" src="../source/Experience/bathe 6.png" alt="Image 6" onclick="enlargeImage(this)" />
+
+        <div class="thumbnail-container">
+          <img class="thumbnail" src="../source/Experience/bathe 1.png" alt="Image 1" onclick="currentSlide(1, 1)" />
+          <img class="thumbnail" src="../source/Experience/bathe 2.png" alt="Image 2" onclick="currentSlide(2, 1)" />
+          <img class="thumbnail" src="../source/Experience/bathe 3.png" alt="Image 3" onclick="currentSlide(3, 1)" />
+          <img class="thumbnail" src="../source/Experience/bathe 4.png" alt="Image 4" onclick="currentSlide(4, 1)" />
+          <img class="thumbnail" src="../source/Experience/bTHE 5.png" alt="Image 5" onclick="currentSlide(5, 1)" />
+          <img class="thumbnail" src="../source/Experience/bathe 6.png" alt="Image 6" onclick="currentSlide(6, 1)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-experience">
+    <div class="experience">
+      <h2 id="experience-heading"><strong>Rose Accounting</strong></h2>
+      <div class="experience-text">
+        <h2>A company website to advertise accounting services</h2>
+        <p>Website, graphics and content designed by Sky</p>
+        <div class="explore-experience">
+          <p>Explore the images below to witness Rose Accounting</p>
+        </div>
+      </div>
+      <div class="slideshow-container" data-slideshow-id="2">
+        <button class="prev" onclick="plusSlides(-1, 2)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1, 2)">&#10095;</button>
+        <div class="caption">Pricing & Terms</div>
+        <img class="main-image active" src="../source/Experience/11.png" alt="Image 1" onclick="enlargeImage(this)" />
+        <div class="caption">Homepage</div>
+        <img class="main-image" src="../source/Experience/22.png" alt="Image 2" onclick="enlargeImage(this)" />
+        <div class="caption">Become a Client</div>
+        <img class="main-image" src="../source/Experience/33.png" alt="Image 3" onclick="enlargeImage(this)" />
+        <div class="caption">Description Page</div>
+        <img class="main-image" src="../source/Experience/44.png" alt="Image 4" onclick="enlargeImage(this)" />
+
+        <div class="thumbnail-container">
+          <img class="thumbnail" src="../source/Experience/11.png" alt="Image 1" onclick="currentSlide(1, 2)" />
+          <img class="thumbnail" src="../source/Experience/22.png" alt="Image 2" onclick="currentSlide(2, 2)" />
+          <img class="thumbnail" src="../source/Experience/33.png" alt="Image 3" onclick="currentSlide(3, 2)" />
+          <img class="thumbnail" src="../source/Experience/44.png" alt="Image 4" onclick="currentSlide(4, 2)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container-experience">
+    <div class="experience">
+      <h2 id="experience-heading"><strong>Portfolio Page</strong></h2>
+      <div class="experience-text">
+        <h2>A portfolio page for a fellow junior software developer</h2>
+        <p>Website, graphics and content designed by Sky</p>
+        <div class="explore-experience">
+          <p>Explore the images below to witness this portfolio</p>
+        </div>
+      </div>
+      <div class="slideshow-container" data-slideshow-id="3">
+        <button class="prev" onclick="plusSlides(-1, 3)">&#10094;</button>
+        <button class="next" onclick="plusSlides(1, 3)">&#10095;</button>
+        <div class="caption">About</div>
+        <img class="main-image active" src="../source/Experience/1111.png" alt="Image 1" onclick="enlargeImage(this)" />
+        <div class="caption">Contact Form</div>
+        <img class="main-image" src="../source/Experience/2222.png" alt="Image 2" onclick="enlargeImage(this)" />
+        <div class="caption">Help me Now!</div>
+        <img class="main-image" src="../source/Experience/333.png" alt="Image 3" onclick="enlargeImage(this)" />
+        <div class="caption">Home and Chatbot</div>
+        <img class="main-image" src="../source/Experience/4444.png" alt="Image 4" onclick="enlargeImage(this)" />
+
+        <div class="thumbnail-container">
+          <img class="thumbnail" src="../source/Experience/1111.png" alt="Image 1" onclick="currentSlide(1, 3)" />
+          <img class="thumbnail" src="../source/Experience/2222.png" alt="Image 2" onclick="currentSlide(2, 3)" />
+          <img class="thumbnail" src="../source/Experience/333.png" alt="Image 3" onclick="currentSlide(3, 3)" />
+          <img class="thumbnail" src="../source/Experience/4444.png" alt="Image 4" onclick="currentSlide(4, 3)" />
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="overlay" onclick="closeOverlay()">
+    <img id="overlay-img" src="" alt="Enlarged Image" />
+  </div>
+
+  <script>
+    let slideIndices = [1, 1, 1];
+
+    function plusSlides(n, slideshowId) {
+      showSlides(slideIndices[slideshowId - 1] += n, slideshowId);
+    }
+
+    function currentSlide(n, slideshowId) {
+      showSlides(slideIndices[slideshowId - 1] = n, slideshowId);
+    }
+
+    function showSlides(n, slideshowId) {
+      const slides = document.querySelectorAll(`.slideshow-container[data-slideshow-id="${slideshowId}"] .main-image`);
+      const captions = document.querySelectorAll(`.slideshow-container[data-slideshow-id="${slideshowId}"] .caption`);
+
+      if (n > slides.length) { slideIndices[slideshowId - 1] = 1 }
+      if (n < 1) { slideIndices[slideshowId - 1] = slides.length }
+
+      slides.forEach((slide, index) => {
+        slide.style.display = (index === slideIndices[slideshowId - 1] - 1) ? "block" : "none";
+        captions[index].style.display = (index === slideIndices[slideshowId - 1] - 1) ? "block" : "none";
+      });
+    }
+
+    function enlargeImage(img) {
+      const overlay = document.querySelector('.overlay');
+      const overlayImg = document.getElementById('overlay-img');
+
+      document.body.classList.add('no-arrows');
+
+      overlayImg.src = img.src;
+      overlay.classList.add('active');
+    }
+
+    function closeOverlay() {
+      const overlay = document.querySelector('.overlay');
+
+      // Show the arrows again by removing the class
+      document.body.classList.remove('no-arrows');
+
+      overlay.classList.remove('active');
+    }
+
+    showSlides(slideIndices[0], 1);
+    showSlides(slideIndices[1], 2);
+    showSlides(slideIndices[2], 3);
+  </script>
+
+  <script src="../portfolio.js"></script>
+
+  <footer class="footer">
+    <div class="footer-content">
+      <div class="footer-links">
+        <a href="https://github.com/sky88822" target="_blank" class="footer-link"><i class="fab fa-github"></i>
+          GitHub</a>
+        <a href="https://www.linkedin.com/in/sky-h-921924342/" target="_blank" class="footer-link"><i
+            class="fab fa-linkedin"></i> LinkedIn</a>
+        <a href="./resume.html" class="footer-link"><i class="fas fa-comment-dots"></i> Contact</a>
+      </div>
+      <div class="footer-copyright">
+        &copy; 2025 Sky Harman
+      </div>
+    </div>
+  </footer>
 
 </body>
 
