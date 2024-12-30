@@ -43,3 +43,4 @@ function iterateMessages() {
 }
 
 typeWelcomeMessage(welcomeMessages[messageIndex]);
+

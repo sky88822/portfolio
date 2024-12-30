@@ -4,7 +4,6 @@
   box-sizing: border-box;
 }
 
-/* Apply Fira Code font to the entire body */
 body {
   font-family: 'Fira Code', monospace;
   background-color: #f4f4f4;
@@ -17,7 +16,7 @@ body {
   margin: 0;
 }
 
-/* Background Video */
+
 #bg-video, #skills-bg-video {
   position: fixed;
   top: 0;
@@ -28,7 +27,6 @@ body {
   z-index: -1;
 }
 
-/* Navbar styles */
 .navbar {
   width: 100%;
   background-color: rgba(51, 51, 51, 0);
@@ -74,39 +72,36 @@ body {
 }
 
 .navbar-center a i {
-  margin-right: 8px; /* Space between icon and text */
+  margin-right: 8px;
 }
 
 .navbar-center a:hover, .navbar-left a:hover {
   color: #0077b5;
 }
 
-
-/* Container to position the content below the navbar */
 .container {
   display: flex;
   flex-direction: column;
-  gap: 20px; /* Space between boxes */
-  align-items: flex-start; /* Align items to the left */
-  justify-content: center; /* Center the content vertically */
-  height: 100vh; /* Full viewport height */
-  margin-top: 0px; /* Adjusting for fixed navbar */
+  gap: 20px;
+  align-items: flex-start;
+  justify-content: center;
+  height: 100vh;
+  margin-top: 0px;
 }
 
-/* Box for homepage text */
+
 .box {
   background-color: transparent;
   border: none;
   border-radius: 8px;
-  width: 80%; /* Width of the box */
-  max-width: 600px; /* Maximum width for each box */
+  width: 80%;
+  max-width: 600px;
   text-align: center;
   position: relative;
   margin-left: 10px;
   padding: 20px;
 }
 
-/* Heading and text styling */
 h1 {
   font-size: 2rem;
   color: white;
@@ -135,7 +130,6 @@ p {
   text-align: center;
 }
 
-/* Social Links */
 .social-links {
   margin-top: 20px;
 }
@@ -159,7 +153,6 @@ p {
   color: #0077b5;
 }
 
-/* GitHub link specific hover effect */
 .social-link:nth-child(2):hover {
   color: #0077b5;
 }
