@@ -283,15 +283,13 @@
     function handleScroll() {
     const navbar = document.getElementById('navbar2');
 
-    // Check if the page is scrolled down
     if (window.scrollY > 0) {
-        navbar.classList.add('scrolled'); // Add class to change color
+        navbar.classList.add('scrolled');
     } else {
-        navbar.classList.remove('scrolled'); // Remove class to revert color
+        navbar.classList.remove('scrolled');
     }
 }
 
-// Attach the scroll event listener
 window.addEventListener('scroll', handleScroll);
   </script>
 
