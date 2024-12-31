@@ -15,6 +15,7 @@
       position: relative;
       max-width: 100%;
       margin: auto;
+      margin-bottom: 80px;
     }
 
     .main-image {
@@ -134,11 +135,11 @@
 <body class="skills-page">
 
 
-  <nav class="navbar">
-    <div class="navbar-left">
+  <nav class="navbar2" id="navbar2">
+    <div class="navbar2-left">
       <a href="../index.html" class="home-link"><i class="fas fa-code"></i> Sky Harman</a>
     </div>
-    <div class="navbar-center">
+    <div class="navbar2-center">
       <a href="./skills.html"><i class="fas fa-cogs"></i> Skills</a>
       <a href="./projects.html"><i class="fas fa-cube"></i> Projects</a>
       <a href="./experience.html"><i class="fas fa-laptop-code"></i> Experience</a>
@@ -247,6 +248,20 @@
 
       overlay.classList.remove('active');
     }
+
+    function handleScroll() {
+    const navbar = document.getElementById('navbar2');
+
+    // Check if the page is scrolled down
+    if (window.scrollY > 0) {
+        navbar.classList.add('scrolled'); // Add class to change color
+    } else {
+        navbar.classList.remove('scrolled'); // Remove class to revert color
+    }
+}
+
+// Attach the scroll event listener
+window.addEventListener('scroll', handleScroll);
   </script>
 
   <script src="../portfolio.js"></script>
